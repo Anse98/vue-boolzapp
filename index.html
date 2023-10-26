@@ -65,13 +65,15 @@
           <!-- lista di chat -->
           <div class="chatsList">
             <ul>
-              <li class="chatContainer active">
+              <li class="chatContainer"
+               :key="index" 
+               v-for="(contact, index) in contacts">
                 <div class="imageAndText">
                   <figure>
-                    <img src="./img/avatar_1.jpg">
+                    <img :src ="contact.avatar">
                   </figure>
                   <div class="chatText">
-                    <h3 class="chatName">Michele</h3>
+                    <h3 class="chatName">{{contact.name}}</h3>
                     <p class="message">Ultimo messaggio inviato</p>
                   </div>     
                 </div>
@@ -117,7 +119,7 @@
             <div class="sent">
              <p>ciao ti è caduta la sigaretta</p>
              <p class="hour">12:00</p> 
-            </div>
+            </div>      
 
             <div class="received">
               <p>ciao ti è caduta la sigaretta</p>

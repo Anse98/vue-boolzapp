@@ -166,6 +166,11 @@ figure{
   padding: 10px 10px;
 }
 
+.chatsList li:hover{
+  background-color:#E9EBEB;
+  cursor: pointer;
+}
+
 .chatsList li:last-child{
   border-bottom: none;
 }
