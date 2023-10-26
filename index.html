@@ -1,18 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boolzapp</title>
   <link rel="stylesheet" href="./style.css">
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://kit.fontawesome.com/f1f0c66429.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
   <div id="app">
-    
+    <div class="container">
+      <!-------------------------- SIDEBAR --------------------->
+      <section class="sidebar">
+
+        <!----------- header della sidebar ------------->
+        <div class="sidebarHeader">
+
+          <!-- Informazioni dell'utente -->
+          <div class="userInformations">
+            <div class="imageAndName">
+              <figure>
+                <img src="./img/avatar_3.jpg">
+              </figure>
+              <span>Anse</span>
+            </div>
+
+            <div class="sidebarHeaderIcons">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+
+          <!-- Notifiche -->
+          <div class="notifications">
+            <div class="bellIcon">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+
+            <div class="notificationsText">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <p>Attiva notifiche desktop</p>
+            </div>
+          </div>
+        </div>
+
+        <!------------- body sidebar --------------->
+        <div class="sidebarBody">
+
+          <!-- barra di ricerca contatti -->
+          <div class="searchBar">
+            <div class="searchBarWrapper">
+              <button class="searchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <input type="search" placeholder="Cerca o inizia una nuova chat..">
+            </div>
+          </div>
+
+          <!-- lista di chat -->
+          <div class="chatsList">
+            <ul>
+              <li class="chatContainer active">
+                <div class="imageAndText">
+                  <figure>
+                    <img src="./img/avatar_1.jpg">
+                  </figure>
+                  <div class="chatText">
+                    <h3 class="chatName">Michele</h3>
+                    <p class="message">Ultimo messaggio inviato</p>
+                  </div>     
+                </div>
+                <div class="hour">
+                  <span>12:00</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!------------------------- MAIN CHAT --------------------->
+      <section class="mainChat">
+        c
+      </section>
+    </div>
   </div>
 
   <script src="./app.js"></script>
 </body>
+
 </html>
