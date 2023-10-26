@@ -49,7 +49,6 @@ figure{
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid lightgray;
- 
 }
 
 .sidebarHeader .userInformations{
@@ -57,6 +56,7 @@ figure{
   align-items: center;
   justify-content: space-between;
   padding: 6px;
+  background-color: #EAEAEA;
 }
 
 .sidebar .imageAndName{
@@ -68,12 +68,12 @@ figure{
 .sidebar .sidebarHeaderIcons{
   display: flex;
   gap: 14px;
-  color: rgb(181, 180, 180);
+  color: #B1B1B1;
   cursor: pointer;
 }
 
 .sidebar .notifications {
-  background-color: rgb(12, 179, 213);
+  background-color: #8EDAFC;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -82,7 +82,7 @@ figure{
 
 .notifications .bellIcon{
   background-color: white;
-  color:rgb(12, 179, 213) ;
+  color:#8EDAFC;
   border-radius: 999px;
   padding: 8px;
   font-size: 16px;
@@ -100,7 +100,7 @@ figure{
 }
 
 .notificationsText p:last-child{
-  color: gray;
+  color: #B1B1B1;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -108,9 +108,15 @@ figure{
 /*************** body della sidebar ************/
 
 /* barra di ricerca */
+.sidebarBody{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .sidebarBody .searchBar{
   padding: 10px 0;
-  background-color: lightgrey;
+  background-color: #F5F5F5;
 }
 
 .searchBar .searchBarWrapper{
@@ -122,7 +128,7 @@ figure{
   background-color: white;
   padding: 4px 24px;
   font-size: 12px;
-  color: gray;
+  color: #B1B1B1;
   border: solid 0px;
   cursor: pointer;
 }
@@ -141,6 +147,8 @@ figure{
 /* lista delle chat */
 .chatsList{
   padding: 8px 0;
+  overflow-y: scroll;
+  flex-grow: 1;
 }
 
 .chatsList li{
@@ -158,7 +166,7 @@ figure{
 }
 
 .chatContainer.active{
-  background-color: gray;
+  background-color: #E9EBEB;
 }
 
 .chatContainer .imageAndText{
@@ -175,12 +183,12 @@ figure{
 }
 
 .chatContainer .chatText .message{
-  color: lightgray;
+  color: #B1B1B1;
 }
 
 .chatContainer .hour{
   font-size: 12px;
-  color: lightgray;
+  color: #B1B1B1;
 }
 
 
@@ -188,8 +196,80 @@ figure{
 
 /************************************ MAIN CHAT *************************/
 .mainChat {
-  border: solid 1px red;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/************* main chat header *************/
+.mainChatHeader .mainChatHeaderWrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  border-bottom: 1px solid lightgray;
+  background-color: #EAEAEA;
+}
+
+.mainChatHeaderWrapper .imageNameAccess{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.imageNameAccess .nameAndText{
+  font-size: 13px;
+}
+
+.imageNameAccess .nameAndText .name{
+  margin-bottom: 4px;
+}
+
+.imageNameAccess .nameAndText .text{
+  color: #9fa2ac;
+}
+
+.mainChatHeaderWrapper .mainChatIcons{
+  display: flex;
+  gap: 8px;
+  margin-right: 10px;
+  color: #B1B1B1;
+}
+
+/************* main chat body *************/
+
+.mainChat .mainChatBody{
+  flex-grow: 1;
+  background-image: url('./img/mine.jpg');
+  overflow-y: scroll;
+}
+
+/************* main chat footer *************/
+
+.mainChatFooter{
+  background-color:#F3EEEA ;
+}
+
+.mainChatFooter .chatFooterWrapper{
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.chatFooterWrapper .emotes,
+.chatFooterWrapper .vocal{
+  padding:0 20px;
+  color: #B1B1B1;
+  font-size: 20px;
+}
+
+.chatFooterWrapper .inputMessage{
   flex-grow: 1;
 }
 
-
+.chatFooterWrapper .inputMessage input{
+  width: 100%;
+  padding: 10px;
+  border: solid 1px lightgray;
+  border-radius: 6px;
+}
