@@ -271,10 +271,11 @@ figure{
 
 .mainChatBody .messages .sent,
 .mainChatBody .messages .received{
-  max-width: 200px;
+  max-width: 60%;
   padding:10px;
   border-radius: 6px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .mainChatBody .messages .sent .hour,

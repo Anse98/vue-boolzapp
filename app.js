@@ -174,13 +174,20 @@ createApp({
             }
           ],
         }
-      ]
+      ],
+
+      currentIndex:0,
+
+      userName: 'Anse',
+      
     }
   },
 
   ////////////////////////////////// METHODS //////////////////////
   methods: {
-
+    showActiveChat(chatIndex){
+      this.currentIndex = chatIndex;
+    }
   },
 
   ////////////////////////////// MOUNTED ///////////////////////////

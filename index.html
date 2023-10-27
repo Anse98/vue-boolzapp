@@ -28,7 +28,7 @@
               <figure>
                 <img src="./img/avatar_3.jpg">
               </figure>
-              <span>Anse</span>
+              <span>{{userName}}</span>
             </div>
 
             <div class="sidebarHeaderIcons">
@@ -67,7 +67,9 @@
             <ul>
               <li class="chatContainer"
                :key="index" 
-               v-for="(contact, index) in contacts">
+               v-for="(contact, index) in contacts"
+               :class="{active: index === currentIndex}"
+               @click="showActiveChat(index)">
                 <div class="imageAndText">
                   <figure>
                     <img :src ="contact.avatar">
@@ -96,10 +98,10 @@
           <div class="mainChatHeaderWrapper">
             <div class="imageNameAccess">
               <figure>
-                <img src="./img/avatar_1.jpg">
+                <img :src="contacts[currentIndex].avatar">
               </figure>
               <div class="nameAndText">
-                <h3 class="name">Michele</h3>
+                <h3 class="name">{{contacts[currentIndex].name}}</h3>
                 <p class="text">Ultimo accesso oggi alle 12:00</p>
               </div>
             </div>
@@ -115,18 +117,17 @@
         <div class="mainChatBody">
 
           <div class="messages">
-            
-            <div class="sent">
-             <p>ciao ti è caduta la sigaretta</p>
-             <p class="hour">12:00</p> 
+  
+            <div 
+            v-for="(message) in contacts[currentIndex].messages"
+            :class="{ sent: message.status ==='sent',
+             received: message.status === 'received'}">
+              <p>{{message.message}}</p>
+              <p class="hour"></p>  
             </div>      
 
-            <div class="received">
-              <p>ciao ti è caduta la sigaretta</p>
-              <p class="hour">12:00</p>
-            </div>
-          
           </div>
+
         </div>
 
         <!----------- footer della main chat --------->
