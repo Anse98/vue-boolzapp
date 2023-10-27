@@ -138,7 +138,9 @@
             </div>
 
             <div class="inputMessage">
-              <input type="text" placeholder="Scrivi un messaggio">
+              <input type="text" placeholder="Scrivi un messaggio"
+              v-model="messageSent"
+              @keyup.enter ="submit()">
             </div>
 
             <div class="vocal">

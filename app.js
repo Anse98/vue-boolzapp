@@ -4,6 +4,8 @@ createApp({
   //////////////////////////////////// DATA /////////////////////////
   data() {
     return {
+
+      // lista di chat e utenti
       contacts: [
 
         {
@@ -176,10 +178,17 @@ createApp({
         }
       ],
 
-      currentIndex:0,
+      // indice che cambierà in base a quale chat vado a visualizzare(di default 0)
+      currentIndex: 0,
 
+      //Nome dell'utente che sta usando Boolzapp
       userName: 'Anse',
-      
+
+      // messaggio che sarà uguale a cioe che scrive l'utente nell'input
+      messageSent:'',
+
+      // messaggio che restituira chi riceve il messaggio
+      messageReceived: 'Ok',
     }
   },
 
@@ -187,6 +196,26 @@ createApp({
   methods: {
     showActiveChat(chatIndex){
       this.currentIndex = chatIndex;
+    },
+
+    // all'invio del messaggio si attiva questa funzione
+    submit(){
+      const messageSentObject = {
+        message: this.messageSent,
+        status: 'sent',
+      }
+
+      const messageReceivedObject = {
+        message: this.messageReceived,
+        status: 'received',
+      }
+
+      // pusho ciò che è scritto dall'utente nell'array di messaggi con status sent
+      this.contacts[this.currentIndex].messages.push(messageSentObject);
+      this.messageSent = '';
+
+      //dopo 2 secondi pusho ciò che è scritto da chi riceve il messaggio nell'array di messaggi con status received
+      setTimeout(()=>this.contacts[this.currentIndex].messages.push(messageReceivedObject), 2000);
     }
   },
 
