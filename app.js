@@ -190,15 +190,25 @@ createApp({
       // messaggio che restituira chi riceve il messaggio
       messageReceived: 'Ok',
 
-
+      //Salvo qua cio che scrive l'utente nella barra ricerca contatti
       searchValue:'',
+
     }
   },
 
   ////////////////////////////////// METHODS //////////////////////
   methods: {
+    //Se clicco su una chat dalla lista chat, diventa active
     showActiveChat(chatIndex){
       this.currentIndex = chatIndex;
+    },
+
+    showLastMessage(chatMessageIndex){
+      const lastMessageIndex = this.contacts[chatMessageIndex].messages.length-1;
+
+      const lastMessage = this.contacts[chatMessageIndex].messages[lastMessageIndex].message;
+      
+      return lastMessage;
     },
 
     // all'invio del messaggio si attiva questa funzione
