@@ -189,6 +189,9 @@ createApp({
 
       // messaggio che restituira chi riceve il messaggio
       messageReceived: 'Ok',
+
+
+      searchValue:'',
     }
   },
 
@@ -216,11 +219,22 @@ createApp({
 
       //dopo 2 secondi pusho ciò che è scritto da chi riceve il messaggio nell'array di messaggi con status received
       setTimeout(()=>this.contacts[this.currentIndex].messages.push(messageReceivedObject), 2000);
+    },
+
+    //funzione che mi restituisce il nome del contatto filtrato in base al valore di ricerca nell'input
+    filteredList(){
+        
+      return this.contacts.filter(contact => {
+
+        return contact.name.toLowerCase().includes(this.searchValue.toLowerCase
+        ());
+      })
+      
     }
   },
 
   ////////////////////////////// MOUNTED ///////////////////////////
   mounted() {
-
+    
   },
 }).mount('#app')
