@@ -80,7 +80,7 @@
                   </div>     
                 </div>
                 <div class="hour">
-                  <span>12:00</span>
+                  <span>{{showMessageHourList(index)}}</span>
                 </div>
               </li>
             </ul>
@@ -119,10 +119,10 @@
           <div class="messages">
   
             <div 
-            v-for="(message) in contacts[currentIndex].messages"
+            v-for="(message,index) in contacts[currentIndex].messages"
             :class="message.status ==='sent' ? 'sent' : 'received'">
               <p>{{message.message}}</p>
-              <p class="hour"></p>  
+              <p class="hour">{{showMessagesHour(index,currentIndex)}}</p>  
             </div>      
 
           </div>

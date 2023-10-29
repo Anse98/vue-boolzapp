@@ -193,6 +193,8 @@ createApp({
       //Salvo qua cio che scrive l'utente nella barra ricerca contatti
       searchValue:'',
 
+      today: new Date().toLocaleString(),
+
     }
   },
 
@@ -203,6 +205,7 @@ createApp({
       this.currentIndex = chatIndex;
     },
 
+    // stampa l'ultimo messaggio di ogni chat nella lista chat
     showLastMessage(chatMessageIndex){
       const lastMessageIndex = this.contacts[chatMessageIndex].messages.length-1;
 
@@ -213,12 +216,16 @@ createApp({
 
     // all'invio del messaggio si attiva questa funzione
     submit(){
+      const hour = this.today.split(' ').join('');
+
       const messageSentObject = {
+        date: hour,
         message: this.messageSent,
         status: 'sent',
       }
 
       const messageReceivedObject = {
+        date: hour,
         message: this.messageReceived,
         status: 'received',
       }
@@ -240,11 +247,52 @@ createApp({
         ());
       })
       
-    }
+    },
+
+    //funzione che mi stampa l'orario dell'ultimo messaggio nella lista chat
+    showMessageHourList(chatHourIndex){
+      const lastMessageHour = this.contacts[chatHourIndex].messages.length-1;
+
+      const lastDate = this.contacts[chatHourIndex].messages[lastMessageHour].date;
+
+      const lastHour = lastDate.substring(11,16);
+
+      return lastHour;
+    },
+
+    showMessagesHour(indexMessage, chatIndex){
+       const messagesDate = this.contacts[chatIndex].messages[indexMessage].date;
+
+       const messageHour = messagesDate.substring(11,16);
+
+       return messageHour;
+    },
+
   },
 
   ////////////////////////////// MOUNTED ///////////////////////////
   mounted() {
     
-  },
+  }
 }).mount('#app')
+
+// name: 'Davide',
+// avatar: './img/avatar_8.jpg',
+// visible: true,
+// messages: [
+//   {
+//     date: '10/01/2020 15:30:55',
+//     message: 'Ciao, andiamo a mangiare la pizza stasera?',
+//     status: 'received'
+//   },
+//   {
+//     date: '10/01/2020 15:50:00',
+//     message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+//     status: 'sent'
+//   },
+//   {
+//     date: '10/01/2020 15:51:00',
+//     message: 'OK!!',
+//     status: 'received'
+//   }
+// ],
